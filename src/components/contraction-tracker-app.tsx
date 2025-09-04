@@ -104,7 +104,11 @@ export function ContractionTrackerApp() {
 
       {/* Timer Section with Compact Stats */}
       <section className="md:max-w-md mx-auto">
-        <CompactStats summary={summary} />
+        <CompactStats
+          summary={summary}
+          isTracking={isTracking}
+          currentContraction={currentContraction}
+        />
         <ContractionTimer
           isTracking={isTracking}
           onStart={startContraction}
