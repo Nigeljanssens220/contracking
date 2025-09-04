@@ -19,14 +19,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { Contraction } from "@/types/contraction";
 import { format, formatDuration, intervalToDuration } from "date-fns";
 import { Clock, Edit, MoreVertical, Plus, Trash2 } from "lucide-react";
@@ -160,85 +152,97 @@ export function ContractionTable({
 
       <CardContent>
         <div className="rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Start Time</TableHead>
-                <TableHead>End Time</TableHead>
-                <TableHead>Duration</TableHead>
-                <TableHead className="w-[120px]">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {contractions.map((contraction) => (
-                <TableRow key={contraction.id}>
-                  <TableCell className="font-mono">
-                    {formatTime(new Date(contraction.startTime))}
-                  </TableCell>
-                  <TableCell className="font-mono">
-                    {contraction.endTime
-                      ? formatTime(new Date(contraction.endTime))
-                      : "N/A"}
-                  </TableCell>
-                  <TableCell className="font-semibold">
-                    {contraction.duration
-                      ? formatDurationFromSeconds(contraction.duration)
-                      : "In progress"}
-                  </TableCell>
-                  <TableCell>
-                    {/* Mobile dropdown (screens < 768px) */}
-                    <div className="md:hidden">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm">
-                            <MoreVertical className="w-4 h-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                          align="end"
-                          className="bg-background border shadow-md"
-                        >
-                          <DropdownMenuItem
-                            onClick={() => setEditingContraction(contraction)}
-                          >
-                            <Edit className="w-4 h-4 mr-2" />
-                            Edit
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => onDelete(contraction.id)}
-                            className="text-destructive focus:text-destructive"
-                          >
-                            <Trash2 className="w-4 h-4 mr-2" />
-                            Delete
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </div>
+          {/* Fixed Header */}
+          <div className="bg-muted/50 border-b">
+            <div className="grid grid-cols-4 gap-4 px-4 py-3">
+              <div className="font-medium text-sm text-muted-foreground">
+                Start Time
+              </div>
+              <div className="font-medium text-sm text-muted-foreground">
+                End Time
+              </div>
+              <div className="font-medium text-sm text-muted-foreground">
+                Duration
+              </div>
+              <div className="font-medium text-sm text-muted-foreground w-[120px]">
+                Actions
+              </div>
+            </div>
+          </div>
 
-                    {/* Desktop buttons (screens >= 768px) */}
-                    <div className="hidden md:flex gap-1">
-                      <Button
-                        onClick={() => setEditingContraction(contraction)}
-                        variant="ghost"
-                        size="sm"
-                        className="text-primary hover:text-primary"
+          {/* Scrollable Body */}
+          <div className="max-h-[50dvh] overflow-auto">
+            {contractions.map((contraction) => (
+              <div
+                key={contraction.id}
+                className="grid grid-cols-4 gap-4 px-4 py-3 border-b last:border-b-0 hover:bg-muted/50"
+              >
+                <div className="font-mono text-sm">
+                  {formatTime(new Date(contraction.startTime))}
+                </div>
+                <div className="font-mono text-sm">
+                  {contraction.endTime
+                    ? formatTime(new Date(contraction.endTime))
+                    : "N/A"}
+                </div>
+                <div className="font-semibold text-sm">
+                  {contraction.duration
+                    ? formatDurationFromSeconds(contraction.duration)
+                    : "In progress"}
+                </div>
+                <div className="w-[120px]">
+                  {/* Mobile dropdown (screens < 768px) */}
+                  <div className="md:hidden">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="sm">
+                          <MoreVertical className="w-4 h-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align="end"
+                        className="bg-background border shadow-md"
                       >
-                        <Edit className="w-4 h-4" />
-                      </Button>
-                      <Button
-                        onClick={() => onDelete(contraction.id)}
-                        variant="ghost"
-                        size="sm"
-                        className="text-destructive hover:text-destructive"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+                        <DropdownMenuItem
+                          onClick={() => setEditingContraction(contraction)}
+                        >
+                          <Edit className="w-4 h-4 mr-2" />
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => onDelete(contraction.id)}
+                          className="text-destructive focus:text-destructive"
+                        >
+                          <Trash2 className="w-4 h-4 mr-2" />
+                          Delete
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+
+                  {/* Desktop buttons (screens >= 768px) */}
+                  <div className="hidden md:flex gap-1">
+                    <Button
+                      onClick={() => setEditingContraction(contraction)}
+                      variant="ghost"
+                      size="sm"
+                      className="text-primary hover:text-primary"
+                    >
+                      <Edit className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      onClick={() => onDelete(contraction.id)}
+                      variant="ghost"
+                      size="sm"
+                      className="text-destructive hover:text-destructive"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </CardContent>
 
@@ -282,3 +286,4 @@ export function ContractionTable({
     </Card>
   );
 }
+
