@@ -1,10 +1,11 @@
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Contracktions - Labor Tracking Tool",
+  title: "About Contracking - Labor Tracking Tool",
   description:
-    "Learn about Contracktions, a free, privacy-focused contraction timer designed to help expectant mothers track their labor progress accurately and safely.",
+    "Learn about Contracking, a free, privacy-focused contraction timer designed to help expectant mothers track their labor progress accurately and safely.",
   alternates: {
     canonical: "/about",
   },
@@ -14,13 +15,14 @@ export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
+        <Breadcrumbs items={[{ label: "About" }]} />
         <article className="prose prose-lg max-w-none">
-          <h1 className="text-4xl font-bold mb-8">About Contracktions</h1>
+          <h1 className="text-4xl font-bold mb-8">About Contracking</h1>
 
           <section className="mb-12">
             <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
             <p className="text-lg mb-6">
-              Contracktions was created to provide expectant mothers with a
+              Contracking was created to provide expectant mothers with a
               simple, accurate, and private tool for tracking labor
               contractions. We believe that having reliable data about your
               labor progress empowers you to make informed decisions and
@@ -38,7 +40,7 @@ export default function AboutPage() {
                 require accounts, or don't prioritize privacy during this
                 intimate time.
               </p>
-              <p>We designed Contracktions to be:</p>
+              <p>We designed Contracking to be:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
                   <strong>Simple to use</strong> - Large, clear buttons that
@@ -128,7 +130,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-semibold mb-4">Medical Disclaimer</h2>
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6">
               <p className="text-yellow-800">
-                <strong>Important Medical Notice:</strong> Contracktions is a
+                <strong>Important Medical Notice:</strong> Contracking is a
                 timing tool only and is not intended to provide medical advice,
                 diagnosis, or treatment. Always consult with your healthcare
                 provider about your labor progress and follow their specific
@@ -148,9 +150,9 @@ export default function AboutPage() {
                   Browser Compatibility
                 </h3>
                 <p className="text-muted-foreground">
-                  Contracktions works on all modern web browsers including
-                  Chrome, Safari, Firefox, and Edge. It's optimized for mobile
-                  devices and works on both iOS and Android.
+                  Contracking works on all modern web browsers including Chrome,
+                  Safari, Firefox, and Edge. It's optimized for mobile devices
+                  and works on both iOS and Android.
                 </p>
               </div>
               <div>

@@ -1,8 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Baby, Heart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -19,6 +16,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { Baby, Heart, Menu } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navigationItems = [
@@ -44,7 +44,7 @@ export function Navbar() {
             </div>
             <div>
               <h2 className="text-3xl font-bold text-foreground">
-                Contracktions
+                Contracking
               </h2>
               <p className="text-muted-foreground text-sm mt-1">
                 Monitor your labor progress with precision
@@ -85,7 +85,7 @@ export function Navbar() {
               <SheetHeader>
                 <SheetTitle className="text-left">Navigation</SheetTitle>
                 <SheetDescription className="text-left">
-                  Navigate through the Contracktions app
+                  Navigate through the Contracking app
                 </SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-6">
@@ -111,3 +111,4 @@ export function Navbar() {
     </header>
   );
 }
+

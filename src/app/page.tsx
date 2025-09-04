@@ -2,7 +2,7 @@ import { ContractionTrackerApp } from "@/components/contraction-tracker-app";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contracktions - Free Labor Contraction Timer & Tracker",
+  title: "Contracking - Free Labor Contraction Timer & Tracker",
   description:
     "Track your labor contractions with precision. Monitor duration, frequency, and patterns to help determine when to go to the hospital. Free, private, and easy to use.",
   alternates: {

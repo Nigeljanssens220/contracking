@@ -1,0 +1,82 @@
+import { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "Contracking - Labor Contraction Timer",
+    short_name: "Contracking",
+    description:
+      "Track your labor contractions with precision using our free, easy-to-use contraction timer",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#ffffff",
+    theme_color: "#9333ea",
+    orientation: "portrait-primary",
+    scope: "/",
+    categories: ["health", "medical", "productivity", "lifestyle"],
+    icons: [
+      {
+        src: "/icon-72.png",
+        sizes: "72x72",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-96.png",
+        sizes: "96x96",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-128.png",
+        sizes: "128x128",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-144.png",
+        sizes: "144x144",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-152.png",
+        sizes: "152x152",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-384.png",
+        sizes: "384x384",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable any",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/screenshot-mobile.png",
+        sizes: "390x844",
+        type: "image/png",
+        form_factor: "narrow",
+      },
+      {
+        src: "/screenshot-desktop.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+      },
+    ],
+  };
+}
+
