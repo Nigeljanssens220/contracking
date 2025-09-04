@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -180,6 +181,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className={inter.className}>
+        <Analytics />
         <Providers>
           <div className="min-h-screen bg-gradient-subtle">
             <Navbar />

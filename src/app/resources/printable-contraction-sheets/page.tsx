@@ -13,6 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { downloadTextFile } from "@/lib/download-utils";
 import {
   ArrowLeft,
   BarChart3,
