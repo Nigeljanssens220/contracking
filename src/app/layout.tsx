@@ -197,7 +197,19 @@ export default function RootLayout({
                 replace professional medical advice.
               </p>
             </div>
-            <div className="flex justify-center gap-6 text-xs text-muted-foreground">
+            <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
+              <Link
+                href="/blog"
+                className="hover:text-primary transition-colors"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/resources"
+                className="hover:text-primary transition-colors"
+              >
+                Resources
+              </Link>
               <Link
                 href="/privacy"
                 className="hover:text-primary transition-colors"

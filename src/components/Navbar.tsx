@@ -25,6 +25,8 @@ const navigationItems = [
   { href: "/", label: "Timer" },
   { href: "/about", label: "About" },
   { href: "/how-to-use", label: "How to Use" },
+  { href: "/blog", label: "Blog" },
+  { href: "/resources", label: "Resources" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -56,18 +58,19 @@ export function Navbar() {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.href}>
-                  <Link href={item.href} legacyBehavior passHref>
+                <NavigationMenuItem key={item.href} asChild>
+                  <li>
                     <NavigationMenuLink
+                      asChild
                       className={cn(
                         "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                         pathname === item.href &&
                           "bg-accent text-accent-foreground"
                       )}
                     >
-                      {item.label}
+                      <Link href={item.href}>{item.label}</Link>
                     </NavigationMenuLink>
-                  </Link>
+                  </li>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
