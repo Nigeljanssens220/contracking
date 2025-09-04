@@ -44,14 +44,7 @@ export function Navbar() {
               <Baby className="w-8 h-8" />
               <Heart className="w-6 h-6 text-pink-500" />
             </div>
-            <div>
-              <h2 className="text-3xl font-bold text-foreground">
-                Contracking
-              </h2>
-              <p className="text-muted-foreground text-sm mt-1">
-                Monitor your labor progress with precision
-              </p>
-            </div>
+            <h1 className="text-3xl font-bold text-foreground">Contracking</h1>
           </Link>
 
           {/* Desktop Navigation */}
