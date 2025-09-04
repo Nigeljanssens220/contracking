@@ -72,11 +72,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "mR5f64aULySvggtRh-0uebUdyGaIT9gBtKQyyp8TvmM",
   },
   category: "health",
 };
-
 export default function RootLayout({
   children,
 }: {
