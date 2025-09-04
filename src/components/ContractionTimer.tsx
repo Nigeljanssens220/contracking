@@ -16,6 +16,7 @@ interface ContractionTimerProps {
   onStart: () => void;
   onStop: () => void;
   startTime?: Date;
+  meetsHospitalRule?: boolean;
 }
 
 export function ContractionTimer({
@@ -23,6 +24,7 @@ export function ContractionTimer({
   onStart,
   onStop,
   startTime,
+  meetsHospitalRule = false,
 }: ContractionTimerProps) {
   const [elapsed, setElapsed] = useState(0);
 
@@ -55,14 +57,27 @@ export function ContractionTimer({
   };
 
   return (
-    <Card className="shadow-timer bg-gradient-maternal border-0">
+    <Card
+      className={`shadow-timer border-0 ${
+        meetsHospitalRule
+          ? "bg-gradient-to-br from-red-500 to-red-600 animate-pulse"
+          : "bg-gradient-maternal"
+      }`}
+    >
       <CardHeader className="text-center pb-4">
         <CardTitle className="text-primary-foreground text-2xl font-semibold flex items-center justify-center gap-2">
           <Timer className="w-6 h-6" />
           Contraction Timer
+          {meetsHospitalRule && (
+            <span className="text-xs bg-white/20 px-2 py-1 rounded-full">
+              5-1-1 Rule Met
+            </span>
+          )}
         </CardTitle>
         <CardDescription className="text-primary-foreground/80">
-          Track your contraction timing
+          {meetsHospitalRule
+            ? "Time to contact your healthcare provider!"
+            : "Track your contraction timing"}
         </CardDescription>
       </CardHeader>
 
@@ -107,3 +122,4 @@ export function ContractionTimer({
     </Card>
   );
 }
+
